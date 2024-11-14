@@ -1,1 +1,2 @@
 1.https://cpp0x.pl/kursy/Kurs-C++/Dodatkowe-materialy/Dzielenie-kodu-na-kilka-plikow-zrodlowych/310
+2.Chat GTP
