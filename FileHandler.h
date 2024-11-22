@@ -2,12 +2,13 @@
 #define FILEHANDLER_H
 
 #include "BST.h"
+#include <string>
 
 class FileHandler {
 public:
-    static void saveBinary(const BST& tree, const std::string& filename);
-    static void loadBinary(BST& tree, const std::string& filename);
-    static void loadText(BST& tree, const std::string& filename);
+    void saveToBinaryFile (BST& bst, const std::string& filename);
+    void loadFromBinaryFile (BST& bst, const std::string& filename);
+    void loadFromTextFile (BST& bst, const std::string& filename);
 };
 
 #endif
