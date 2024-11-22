@@ -1,31 +1,43 @@
 #ifndef BST_H
 #define BST_H
 
-#include "Node.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int value) : data(value), left(nullptr), right(nullptr) {}
+};
 
 class BST {
-public:
-    BST();
-    ~BST();
-
-    void insert(int value);
-    void remove(int value);
-    void clear();
-    Node* search(int value);
-    void display(int order);
-    void saveToFile(const std::string& filename);
-
 private:
     Node* root;
-
-    Node* insert(Node* node, int value);
-    Node* remove(Node* node, int value);
-    void clear(Node* node);
-    Node* search(Node* node, int value);
+    void insert(Node*& node, int value);
+    void remove(Node*& node, int value);
+    void clear(Node*& node);
+    void findPath(Node* node, int value, std::vector<int>& path);
     void displayPreorder(Node* node);
     void displayInorder(Node* node);
     void displayPostorder(Node* node);
-    void saveToFile(Node* node, std::ofstream& file);
+    void saveToTextFile(Node* node, std::ofstream& file);
+
+    friend class FileHandler;
+
+public:
+    BST();
+    ~BST();
+    void insert(int value);
+    void remove(int value);
+    void clear();
+    void findPath(int value);
+    void displayPreorder();
+    void displayInorder();
+    void displayPostorder();
+    void saveToTextFile(const std::string& filename);
 };
 
-#endif
+#endif // BST_H
